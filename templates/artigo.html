@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet", href="{{ url_for('static', filename='css/style.css') }}">
+    <title>ARTIGO</title>
+</head>
+<body>
+    <h1>Autor: {{artigo.get_palestrante()}}</h1>
+    <br>    
+    <h1>Identificação: {{artigo.get_id()}}</h1>
+    <br>
+    <h1>Data de Publicação: {{artigo.get_data()}}</h1>
+    <br>
+    <h2>{{artigo.get_tema()}}</h2>
+    <br>    
+    <h2>{{artigo.get_noticia()}}</h2>
+    <hr>
+    <img id="img-artigo" src="{{ url_for('static', filename=artigo.get_img()) }}" />
+    <hr>
+
+    <a href="{{ url_for('home') }}">VOLTAR</a>    
+
+</body>
+</html>

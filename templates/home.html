@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet", href="{{ url_for('static', filename='css/style.css') }}">
+    <title>PÁGINA INICIAL</title>
+</head>
+<body>
+
+    <h1>SEJA BEM VINDO A PÁGINA DE COLUNAS</h1>
+
+<hr>
+    {% for categoria in categoria_list %}
+    <section>
+        <h1>Tema: {{ categoria.get_categoria() }} </h1>
+    </section>        
+    {% endfor %}
+    
+    {% for artigo in artigo_list %}
+        <section id="classe-{{artigo.get_id()}}">
+            <h1>Autor: {{ artigo.get_palestrante() }}</h1>
+            <h1>Tema: {{ artigo.get_tema() }} </h1>
+            <h2>Notícia: {{ artigo.get_noticia() }}</h2>
+            <a href="{{ url_for('artigo', id=artigo.get_id()) }}">SOBRE A NOTÍCIA</a>   
+            <br>            
+            <a href="{{ url_for('autor') }}">AUTOR</a>  
+            <hr>              
+        </section>        
+    {% endfor %}
+
+
+    
+</body>
+</html>

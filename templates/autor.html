@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet", href="{{ url_for('static', filename='css/style.css') }}">
+    <title>AUTORES</title>
+</head>
+<body>
+    
+    <h1> PÁGINA DE AUTORES</h1>
+
+    <br>
+
+    {% for autor in autor_list %}        
+    <section>
+        <h1>Autor: {{ autor.get_autor() }}</h1>
+        <hr>
+        <img id="img-autor" src="{{ url_for('static', filename=autor.get_img_autor()) }}" />
+        <hr>     
+    </section>
+    {% endfor %} 
+
+    <a href="{{ url_for('home') }}">VOLTAR</a>  
+
+</body>
+</html>
